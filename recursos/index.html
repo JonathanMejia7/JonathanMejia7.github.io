@@ -15,7 +15,7 @@
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
 <body>
@@ -26,7 +26,6 @@
       <a class="marca" href="../">Jonathan Mejía</a>
       <nav class="nav" aria-label="Principal">
         <a href="./" aria-current="page">Recursos</a>
-        <a href="../proyectos/">Proyectos</a>
         <a href="../archivo/">Archivo</a>
       </nav>
       <ul class="redes-iconos" aria-label="Redes sociales">
@@ -38,23 +37,39 @@
   </header>
 
   <main id="contenido" class="contenedor">
-    <div class="recurso__cabecera">
+    <div class="recurso__cabecera recurso__cabecera--compacta">
+      <span class="etiqueta etiqueta--linea">Biblioteca</span>
       <h1>Recursos</h1>
       <p class="entrada">Los prompts y materiales que menciono en mis videos. Cada uno tiene su propia página para que lo copies y lo uses como guía.</p>
     </div>
 
     <section class="seccion" aria-label="Lista de recursos">
-      <!-- Para agregar un recurso: copia una tarjeta <li> y cambia el enlace, el título y el texto. El más nuevo va primero. -->
-      <ul class="rejilla rejilla--2">
+      <!-- Para agregar un recurso: copia una tarjeta <li> y cambia el enlace, la ilustración, el título y el texto. El más nuevo va primero. -->
+      <ul class="lista-recursos">
         <li>
-          <article class="tarjeta">
-            <span class="chip">Prompt</span>
-            <h3><a href="cotizar-con-ia/">Compara cotizaciones con IA</a></h3>
-            <p>Analiza varias cotizaciones y obtén un resumen ejecutivo para decidir la compra: cumplimiento, costo total, condiciones de pago y riesgos.</p>
-            <div class="tarjeta__pie">
-              <span>Método RTCF · ChatGPT, Claude o Gemini</span>
-              <span class="flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <article class="tarjeta tarjeta--fila">
+            <span class="tarjeta__portada">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <rect x="13" y="22" width="28" height="40" rx="5" fill="#F3F6F7"/>
+                <rect x="46" y="22" width="28" height="40" rx="5" fill="#F3F6F7"/>
+                <rect x="79" y="22" width="28" height="40" rx="5" fill="#F3F6F7"/>
+                <circle cx="27" cy="38" r="7" stroke="#0A1A2E" stroke-width="2.5"/>
+                <path d="M27 34.5V38l2.5 1.5" stroke="#0A1A2E" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="60" cy="38" r="8" fill="#E5A93D"/>
+                <circle cx="93" cy="38" r="7" stroke="#0A1A2E" stroke-width="2.5"/>
+                <rect x="17" y="51" width="20" height="5" rx="2.5" fill="#0A1A2E"/>
+                <rect x="50" y="51" width="20" height="5" rx="2.5" fill="#0A1A2E"/>
+                <rect x="83" y="51" width="20" height="5" rx="2.5" fill="#0A1A2E"/>
+                <path d="M27 62v6a6 6 0 0 0 6 6h21M93 62v6a6 6 0 0 1-6 6H66M60 62v20" stroke="#8BB6C9" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="34" y="82" width="52" height="16" rx="8" fill="#E5A93D"/>
+              </svg>
+            </span>
+            <div class="tarjeta__texto">
+              <span class="tarjeta__meta"><span class="chip">Prompt</span> Método RTCF · ChatGPT, Claude o Gemini</span>
+              <h3><a href="cotizar-con-ia/">Compara cotizaciones con IA</a></h3>
+              <p>Analiza varias cotizaciones y obtén un resumen ejecutivo para decidir la compra: cumplimiento, costo total, condiciones de pago y riesgos.</p>
             </div>
+            <span class="flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </article>
         </li>
       </ul>

@@ -11,7 +11,9 @@
 
   /* Tema claro */
   --fondo: var(--blanco-calido);
-  --superficie: #FCFBF8;
+  --superficie: #FFFFFF;
+  --banda: var(--azul-oscuro);
+  --sombra: 0 1px 2px rgba(10, 26, 46, 0.04), 0 12px 32px -16px rgba(10, 26, 46, 0.18);
   --texto: var(--azul-oscuro);
   --texto-suave: #4A5667;
   --borde: rgba(10, 26, 46, 0.12);
@@ -40,7 +42,10 @@
   --radio: 14px;
   --radio-chico: 10px;
 
-  --fuente: "Avenir Next", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Textos con la letra de Apple (SF Pro); títulos con Neue Haas Grotesk si está instalada,
+     o Helvetica Neue, que viene en iPhone y Mac. Inter es el respaldo en Android y Windows */
+  --fuente: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  --fuente-titulos: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Display", "Helvetica Neue", "Inter", Helvetica, Arial, sans-serif;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -51,6 +56,8 @@
   :root:not([data-theme="light"]) {
     --fondo: var(--azul-oscuro);
     --superficie: #10243D;
+    --banda: #071321;
+    --sombra: none;
     --texto: var(--blanco-suave);
     --texto-suave: #A9BFCB;
     --borde: rgba(243, 246, 247, 0.10);
@@ -65,6 +72,8 @@
 :root[data-theme="dark"] {
   --fondo: var(--azul-oscuro);
   --superficie: #10243D;
+    --banda: #071321;
+    --sombra: none;
   --texto: var(--blanco-suave);
   --texto-suave: #A9BFCB;
   --borde: rgba(243, 246, 247, 0.10);
@@ -84,16 +93,22 @@
 }
 
 html {
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
+/* El pie siempre llega al final de la ventana, aunque la página sea corta */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   background: var(--fondo);
   color: var(--texto);
   font-family: var(--fuente);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -111,13 +126,27 @@ h3 {
   text-wrap: balance;
 }
 
-h1 {
-  font-size: clamp(2.125rem, 1.4rem + 3.2vw, 3.25rem);
+h1,
+h2 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
   letter-spacing: -0.025em;
 }
 
+h1 {
+  font-size: clamp(2.375rem, 1.5rem + 3.8vw, 4rem);
+  line-height: 1.05;
+}
+
 h2 {
-  font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem);
+  font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem);
+  line-height: 1.1;
+}
+
+/* Palabras clave del título en ámbar, sobre fondo oscuro */
+h1 em {
+  font-style: normal;
+  color: var(--ambar);
 }
 
 h3 {
@@ -202,22 +231,22 @@ a {
 }
 
 main {
+  flex: 1;
   padding-bottom: var(--e-9);
 }
 
-/* Si la página termina en la banda azul, el pie va pegado a ella */
+/* Si la página termina en "Sobre mí", su propio margen basta antes del pie */
 main:has(> .banda:last-child) {
   padding-bottom: 0;
 }
 
-main:has(> .banda:last-child) + .pie {
-  border-top: 0;
-}
 
 /* Encabezado */
 
 .encabezado {
   padding-block: var(--e-5);
+  background: var(--banda);
+  color: var(--blanco-suave);
 }
 
 .encabezado .contenedor {
@@ -262,7 +291,7 @@ main:has(> .banda:last-child) + .pie {
   margin: 0;
   padding: 0 0 0 var(--e-3);
   list-style: none;
-  border-left: 1px solid var(--borde);
+  border-left: 1px solid rgba(243, 246, 247, 0.16);
 }
 
 .redes-iconos a {
@@ -271,7 +300,7 @@ main:has(> .banda:last-child) + .pie {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: var(--texto-suave);
+  color: rgba(243, 246, 247, 0.72);
   transition: color 150ms ease, background-color 150ms ease;
 }
 
@@ -282,8 +311,8 @@ main:has(> .banda:last-child) + .pie {
 
 @media (hover: hover) and (pointer: fine) {
   .redes-iconos a:hover {
-    color: var(--texto);
-    background: var(--borde);
+    color: var(--blanco-suave);
+    background: rgba(243, 246, 247, 0.1);
   }
 }
 
@@ -310,19 +339,19 @@ main:has(> .banda:last-child) + .pie {
 
 .nav a {
   text-decoration: none;
-  color: var(--texto-suave);
+  color: rgba(243, 246, 247, 0.72);
   padding-block: var(--e-1);
   transition: color 150ms ease;
 }
 
 .nav a[aria-current="page"] {
-  color: var(--texto);
+  color: var(--blanco-suave);
   box-shadow: inset 0 -2px 0 var(--ambar);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .nav a:hover {
-    color: var(--texto);
+    color: var(--blanco-suave);
   }
 }
 
@@ -424,6 +453,17 @@ main:has(> .banda:last-child) + .pie {
   transform: scale(0.97);
 }
 
+.heroe .boton {
+  background: var(--ambar);
+  color: var(--azul-oscuro);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .heroe .boton:hover {
+    background: #EDB955;
+  }
+}
+
 .boton svg {
   width: 18px;
   height: 18px;
@@ -432,33 +472,89 @@ main:has(> .banda:last-child) + .pie {
 
 /* Inicio */
 
-.portada {
-  display: grid;
-  gap: var(--e-5);
-  padding-block: var(--e-6) var(--e-8);
+/* Portada: continúa el azul del encabezado, con una trama sutil como en los videos */
+.heroe {
+  position: relative;
+  background: var(--banda);
+  color: var(--blanco-suave);
+  isolation: isolate;
 }
 
-/* En escritorio, título a la izquierda y presentación a la derecha: ocupa el ancho sin agregar elementos */
-@media (min-width: 960px) {
+.heroe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(139, 182, 201, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 182, 201, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 90% at 70% 30%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 90% at 70% 30%, #000 30%, transparent 75%);
+}
+
+.portada {
+  display: grid;
+  gap: var(--e-6);
+  padding-block: var(--e-5) var(--e-8);
+}
+
+@media (min-width: 900px) {
   .portada {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    align-items: end;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    align-items: center;
     gap: var(--e-8);
     padding-block: var(--e-8) var(--e-9);
   }
 }
 
 .portada h1 {
-  max-width: 13em;
+  max-width: 12em;
+}
+
+.portada .entrada {
+  margin-top: var(--e-5);
+  color: rgba(243, 246, 247, 0.78);
 }
 
 .portada .entrada strong {
-  color: var(--texto);
+  color: var(--blanco-suave);
   font-weight: 600;
 }
 
-.portada__lado .boton {
+.portada .boton {
   margin-top: var(--e-6);
+}
+
+/* Foto: en el celular va pequeña arriba; en escritorio ocupa la columna derecha */
+.portada__foto {
+  order: -1;
+  width: 104px;
+  margin: 0;
+  padding: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 169, 61, 0.55);
+}
+
+.portada__foto img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+  .portada__foto {
+    order: 0;
+    width: 100%;
+    max-width: 360px;
+    justify-self: end;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(243, 246, 247, 0.04);
+  }
+
+  .portada__foto img {
+    border-radius: 20px;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -489,37 +585,17 @@ main:has(> .banda:last-child) + .pie {
 
 /* Banda "Sobre mí": el azul oscuro de la marca, como en los videos */
 .banda {
-  padding-block: var(--e-8);
-  background: var(--azul-oscuro);
-  color: var(--blanco-suave);
-}
-
-:root[data-theme="dark"] .banda {
-  background: var(--superficie);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .banda {
-    background: var(--superficie);
-  }
-}
-
-.banda .etiqueta {
-  color: var(--azul-claro);
+  padding-block: var(--e-9);
 }
 
 .banda h2 {
-  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.875rem);
 }
 
 .banda p {
   margin-top: var(--e-4);
-  color: rgba(243, 246, 247, 0.8);
+  color: var(--texto-suave);
   max-width: 36em;
-}
-
-.banda a {
-  color: var(--blanco-suave);
 }
 
 .banda__rejilla {
@@ -537,38 +613,43 @@ main:has(> .banda:last-child) + .pie {
 
 .cifras {
   display: grid;
+  gap: var(--e-3);
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(139, 182, 201, 0.2);
 }
 
 .cifras li {
   display: grid;
   grid-template-columns: 6.5rem 1fr;
-  align-items: baseline;
+  align-items: center;
   gap: var(--e-4);
-  padding-block: var(--e-4);
-  border-bottom: 1px solid rgba(139, 182, 201, 0.2);
+  padding: var(--e-4) var(--e-5);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--ambar);
+  border-radius: var(--radio-chico);
+  box-shadow: var(--sombra);
 }
 
 .cifras strong {
-  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
-  font-weight: 600;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 1.6rem + 1.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--ambar);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .cifras span {
-  color: rgba(243, 246, 247, 0.85);
+  color: var(--texto-suave);
+  line-height: 1.4;
 }
 
 .banda .cifras__nota {
   margin-top: var(--e-3);
   font-size: 0.8125rem;
-  color: var(--azul-claro);
 }
 
 .banda .banda__oportunidades {
@@ -589,14 +670,14 @@ main:has(> .banda:last-child) + .pie {
 /* Entrada escalonada solo en la portada: se ve una vez, al llegar */
 @media (prefers-reduced-motion: no-preference) {
   .aparece {
-    animation: aparecer 420ms var(--ease-out) both;
+    animation: aparecer 420ms var(--ease-out) backwards;
     animation-delay: calc(var(--orden, 0) * 60ms);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .aparece {
-    animation: desvanecer 200ms ease both;
+    animation: desvanecer 200ms ease backwards;
   }
 }
 
@@ -639,6 +720,7 @@ main:has(> .banda:last-child) + .pie {
   background: var(--superficie);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
+  box-shadow: var(--sombra);
   transition: border-color 150ms ease, transform 160ms var(--ease-out);
 }
 
@@ -679,8 +761,20 @@ main:has(> .banda:last-child) + .pie {
   color: var(--texto-suave);
 }
 
+.tarjeta h3,
+.proyecto h3,
+.pasos strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .tarjeta h3 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
+}
+
+.proyecto h3 {
+  font-size: 1.3125rem;
 }
 
 .tarjeta__pie .flecha {
@@ -713,17 +807,49 @@ main:has(> .banda:last-child) + .pie {
 
 /* Página de recurso */
 
+/* Banda azul a todo el ancho aunque el bloque esté dentro de un contenedor angosto */
 .recurso__cabecera {
-  padding-top: var(--e-5);
+  padding-block: var(--e-5) var(--e-7);
+  color: var(--blanco-suave);
+  border-image: conic-gradient(var(--banda) 0 0) fill 0 / / 0 100vmax;
 }
 
 .recurso__cabecera h1 {
   margin-top: var(--e-5);
-  font-size: clamp(1.875rem, 1.3rem + 2.6vw, 2.75rem);
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.25rem);
+}
+
+.recurso__cabecera h1:first-child {
+  margin-top: var(--e-4);
 }
 
 .recurso__cabecera .entrada {
-  margin-top: var(--e-3);
+  margin-top: var(--e-4);
+  color: rgba(243, 246, 247, 0.78);
+}
+
+.recurso__cabecera .miga,
+.recurso__cabecera .etiqueta {
+  color: var(--azul-claro);
+}
+
+.recurso__cabecera .etiqueta + h1 {
+  margin-top: var(--e-4);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .recurso__cabecera .miga:hover {
+    color: var(--blanco-suave);
+  }
+}
+
+.recurso__cabecera .chip {
+  border-color: rgba(243, 246, 247, 0.3);
+  color: var(--blanco-suave);
+}
+
+.proyecto {
+  box-shadow: var(--sombra);
 }
 
 .datos {
@@ -1081,9 +1207,9 @@ main:has(> .banda:last-child) + .pie {
 
 .pie {
   padding-block: var(--e-6) var(--e-7);
-  border-top: 1px solid var(--borde);
+  background: var(--banda);
   font-size: 0.9375rem;
-  color: var(--texto-suave);
+  color: rgba(243, 246, 247, 0.7);
 }
 
 .pie .contenedor {
@@ -1095,12 +1221,257 @@ main:has(> .banda:last-child) + .pie {
 }
 
 .pie strong {
-  color: var(--texto);
+  color: var(--blanco-suave);
   font-weight: 600;
 }
 
 @media (min-width: 720px) {
   :root {
     --margen-lateral: 32px;
+  }
+}
+
+/* Lista de recursos: filas a todo el ancho, escala bien con muchos recursos */
+.lista-recursos {
+  display: grid;
+  gap: var(--e-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tarjeta--fila {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--e-4);
+  padding: var(--e-5);
+}
+
+.tarjeta--fila .flecha {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .tarjeta--fila {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--e-5);
+    padding: var(--e-6);
+  }
+
+  .tarjeta--fila .flecha {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    color: var(--texto);
+    border-color: var(--borde-fuerte);
+  }
+}
+
+.tarjeta__texto {
+  display: grid;
+  gap: var(--e-2);
+}
+
+.tarjeta__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2) var(--e-3);
+  font-size: 0.8125rem;
+  color: var(--texto-suave);
+}
+
+.tarjeta--fila p {
+  max-width: 44em;
+}
+
+/* Página de recurso: el prompt a la izquierda y la guía de uso a la derecha */
+.recurso__cuerpo {
+  display: grid;
+  gap: var(--e-7);
+  margin-top: var(--e-6);
+}
+
+.recurso__cuerpo .prompt {
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .recurso__cuerpo {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+    gap: var(--e-6);
+    margin-top: var(--e-7);
+  }
+
+}
+
+.recurso__lateral {
+  display: grid;
+  gap: var(--e-4);
+}
+
+.recurso__lateral .seccion {
+  padding: var(--e-5);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.recurso__lateral h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+.recurso__lateral .seccion__titulo {
+  margin-bottom: var(--e-4);
+}
+
+.recurso__lateral .pasos {
+  gap: var(--e-4);
+}
+
+.recurso__lateral .pasos strong {
+  font-size: 1rem;
+}
+
+.recurso__lateral .pasos p,
+.recurso__lateral .nota p {
+  font-size: 0.9375rem;
+}
+
+.recurso__lateral .nota {
+  padding: var(--e-3) var(--e-4);
+  background: var(--fondo);
+}
+
+/* Prompt: más aire, secciones marcadas y aviso de qué completar */
+.prompt {
+  box-shadow: 0 24px 48px -28px rgba(10, 26, 46, 0.55);
+}
+
+.prompt__ayuda {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  margin: 0;
+  padding: var(--e-3) var(--e-5) 0;
+  font-size: 0.8125rem;
+  color: var(--azul-claro);
+}
+
+.prompt__muestra {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(229, 169, 61, 0.25);
+  border: 1px solid var(--ambar);
+}
+
+.prompt__texto .bloque {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(139, 182, 201, 0.14);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.prompt__texto .bloque:not(:first-child) {
+  margin-top: var(--e-5);
+}
+
+@media (min-width: 720px) {
+  .prompt__texto {
+    padding: var(--e-6);
+    font-size: 1rem;
+  }
+
+  .prompt__ayuda {
+    padding-inline: var(--e-6);
+  }
+}
+
+/* Página de Recursos más compacta: la lista aparece antes */
+.recurso__cabecera--compacta {
+  padding-bottom: var(--e-6);
+}
+
+.recurso__cabecera--compacta h1 {
+  font-size: clamp(1.875rem, 1.4rem + 1.8vw, 2.5rem);
+}
+
+.recurso__cabecera--compacta .entrada {
+  font-size: 1rem;
+}
+
+.recurso__cabecera--compacta + .seccion {
+  padding-top: var(--e-6);
+}
+
+/* Ilustración de cada recurso: identifica el tema sin usar capturas del video */
+.tarjeta__portada {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background: var(--azul-oscuro);
+}
+
+.tarjeta__portada svg {
+  width: 82%;
+}
+
+@media (min-width: 720px) {
+  .tarjeta__portada {
+    width: 96px;
+    border-radius: 20px;
+  }
+
+  .tarjeta--fila {
+    padding: var(--e-4) var(--e-5) var(--e-4) var(--e-4);
+  }
+}
+
+.tarjeta--fila {
+  align-items: center;
+}
+
+/* En la página del recurso, la misma ilustración en grande a la derecha (solo pantallas anchas) */
+.recurso__portada {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .recurso__cabecera:has(.recurso__portada) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--e-7);
+  }
+
+  .recurso__cabecera:has(.recurso__portada) > :not(.recurso__portada) {
+    grid-column: 1;
+  }
+
+  .recurso__portada {
+    display: grid;
+    place-items: center;
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    align-self: end;
+    width: 200px;
+    aspect-ratio: 1;
+    border-radius: 32px;
+    background: rgba(243, 246, 247, 0.05);
+    border: 1px solid rgba(243, 246, 247, 0.12);
+  }
+
+  .recurso__portada svg {
+    width: 80%;
   }
 }

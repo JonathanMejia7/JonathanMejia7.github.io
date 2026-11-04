@@ -10,7 +10,6 @@ Web de Jonathan Mejía: los prompts y recursos que comparto en mis videos de Tik
 | `recursos/` | Lista de recursos. Cada recurso tiene su propia carpeta |
 | `recursos/cotizar-con-ia/` | Prompt para comparar cotizaciones con IA |
 | `recursos/_plantilla/` | Plantilla para un recurso nuevo (no se publica) |
-| `proyectos/` | Proyectos de operaciones e IA |
 | `archivo/` | Proyectos anteriores de análisis de datos y gestión de proyectos (2023) |
 | `assets/` | Estilos (`css/`), código del botón copiar (`js/`), imágenes (`img/`) e íconos (`icons/`) |
 

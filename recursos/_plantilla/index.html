@@ -25,7 +25,7 @@
   <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="../../assets/css/estilos.css">
 </head>
 <body>
@@ -36,7 +36,6 @@
       <a class="marca" href="../../">Jonathan Mejía</a>
       <nav class="nav" aria-label="Principal">
         <a href="../" aria-current="page">Recursos</a>
-        <a href="../../proyectos/">Proyectos</a>
         <a href="../../archivo/">Archivo</a>
       </nav>
       <ul class="redes-iconos" aria-label="Redes sociales">
@@ -47,7 +46,7 @@
     </div>
   </header>
 
-  <main id="contenido" class="contenedor contenedor--texto">
+  <main id="contenido" class="contenedor">
     <div class="recurso__cabecera">
       <a class="miga" href="../">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
@@ -59,8 +58,19 @@
         <li class="chip">Prompt</li>
         <li class="chip">CAMBIAR: método o herramienta</li>
       </ul>
+      <!-- CAMBIAR: ilustración simple del tema (SVG 120×120 con los colores de marca), la misma de la tarjeta en recursos/index.html -->
+      <div class="recurso__portada">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="34" y="20" width="52" height="68" rx="7" fill="#F3F6F7"/>
+          <rect x="43" y="34" width="34" height="5" rx="2.5" fill="#0A1A2E"/>
+          <rect x="43" y="46" width="26" height="5" rx="2.5" fill="#8BB6C9"/>
+          <rect x="43" y="58" width="30" height="5" rx="2.5" fill="#8BB6C9"/>
+          <rect x="34" y="94" width="52" height="10" rx="5" fill="#E5A93D"/>
+        </svg>
+      </div>
     </div>
 
+    <div class="recurso__cuerpo">
     <section class="prompt" aria-labelledby="nombre-prompt">
       <div class="prompt__barra">
         <span class="prompt__nombre" id="nombre-prompt">Prompt</span>
@@ -73,6 +83,7 @@
           </span>
         </button>
       </div>
+      <p class="prompt__ayuda"><span class="prompt__muestra" aria-hidden="true"></span>Completa la parte resaltada con tus datos antes de pegarlo.</p>
       <pre class="prompt__texto" id="texto-prompt">CAMBIAR: pega aquí el prompt. <span class="completa">[Así se ve una parte que la persona debe completar]</span>.</pre>
       <div class="prompt__pie">
         <p class="visualmente-oculto" role="status" aria-live="polite" id="anuncio-copia"></p>
@@ -80,6 +91,7 @@
       </div>
     </section>
 
+    <aside class="recurso__lateral" aria-label="Guía de uso">
     <section class="seccion" aria-labelledby="titulo-pasos">
       <h2 id="titulo-pasos" class="seccion__titulo">Cómo usarlo</h2>
       <ol class="pasos">
@@ -98,6 +110,8 @@
         </div>
       </div>
     </section>
+    </aside>
+    </div>
   </main>
 
   <footer class="pie">
