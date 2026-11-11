@@ -1654,3 +1654,90 @@ main:has(> .banda:last-child) {
 .bloque-recurso__enlace {
   font-weight: 500;
 }
+
+/* Detalles adaptados de Magic UI, Aceternity y shadcn/ui (sin React). Lógica en assets/js/efectos.js */
+
+/* Portada: brillo celeste muy tenue sobre la cuadrícula que sigue el cursor (Spotlight).
+   Solo aparece cuando el JS ya dio la posición, es decir, en computadora */
+.heroe::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(93, 173, 236, 0.10), transparent 70%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .heroe[style*="--x"]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Lista de recursos: el borde se ilumina en celeste donde está el cursor (Magic Card) */
+.lista-recursos .tarjeta::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(280px circle at var(--x, 50%) var(--y, 50%), var(--celeste), rgba(93, 173, 236, 0.55) 40%, transparent 75%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .lista-recursos .tarjeta[style*="--x"]:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Filtro por tipo (al estilo de los Toggle Group de shadcn/ui) */
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-bottom: var(--e-4);
+}
+
+.filtro[hidden] {
+  display: none;
+}
+
+.filtro__opcion {
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, transform 160ms var(--ease-out);
+}
+
+.filtro__opcion:active {
+  transform: scale(0.96);
+}
+
+.filtro__opcion[aria-pressed="true"] {
+  background: var(--texto);
+  border-color: var(--texto);
+  color: var(--fondo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filtro__opcion[aria-pressed="false"]:hover {
+    border-color: var(--texto);
+  }
+}
