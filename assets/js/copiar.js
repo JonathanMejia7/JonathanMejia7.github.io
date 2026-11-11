@@ -1,5 +1,6 @@
 // Botón "Copiar" de los recursos.
 // Uso: <button class="copiar" data-copiar="id-del-texto">…</button>
+// data-mensaje (opcional): el aviso para lectores de pantalla; las páginas en inglés lo traen en inglés.
 // Copia el texto tal cual se ve (sin etiquetas HTML) y confirma en el mismo botón.
 
 (function () {
@@ -49,7 +50,7 @@
         }
         if (error) error.hidden = true;
         boton.classList.add("copiado");
-        if (anuncio) anuncio.textContent = "Prompt copiado. Ya puedes pegarlo en tu herramienta de IA.";
+        if (anuncio) anuncio.textContent = boton.getAttribute("data-mensaje") || "Prompt copiado. Ya puedes pegarlo en tu herramienta de IA.";
         // Si se vuelve a pulsar, el aviso dura otros 2 segundos desde ese clic
         clearTimeout(temporizador);
         temporizador = setTimeout(function () {
