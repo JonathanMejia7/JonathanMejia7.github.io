@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Build your weekly AI summary · Jonathan Mejía</title>
+  <meta name="description" content="A prompt and a skill to get the most important posts from your sources every week, with date and original link. Includes a tutorial to install the skill in Claude Code or Codex.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Prompt and skill: your weekly AI summary">
+  <meta property="og:description" content="Get what your sources published each week, with no old news or made-up data.">
+  <meta property="og:url" content="https://jonathanmejia7.github.io/en/resources/resumen-semanal/">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#F5F3EE" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A1A2E" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="es" href="https://jonathanmejia7.github.io/recursos/resumen-semanal/">
+  <link rel="alternate" hreflang="en" href="https://jonathanmejia7.github.io/en/resources/resumen-semanal/">
+  <link rel="alternate" hreflang="x-default" href="https://jonathanmejia7.github.io/recursos/resumen-semanal/">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Skip to content</a>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <a class="marca" href="/en/">Jonathan Mejía</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/en/resources/" aria-current="page">Resources</a>
+        <a href="/en/archive/">Archive</a>
+        <a class="nav__idioma" href="/recursos/resumen-semanal/" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+      </nav>
+      <ul class="redes-iconos" aria-label="Social media">
+        <li><a href="https://www.tiktok.com/@jonathanmejia.ops" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V3c.6 2.7 2.6 4.6 5 5"/></svg></a></li>
+        <li><a href="https://www.instagram.com/jonathanmejia.ops/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/jonathanmejia710" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <div class="recurso__cabecera">
+      <a class="miga" href="../">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        Resources
+      </a>
+      <h1>Build your weekly AI summary</h1>
+      <p class="entrada">Get the most important posts from your sources every week, with date and original link. Use the prompt in any chat, or install the skill so it arrives on its own.</p>
+      <ul class="datos" aria-label="Details">
+        <li class="chip">Prompt</li>
+        <li class="chip">Skill</li>
+      </ul>
+      <div class="recurso__portada">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="16" y="34" width="80" height="58" rx="8" fill="#F3F6F7"/>
+          <path d="M21 40l35 25 35-25" stroke="#8BB6C9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="28" y="72" width="34" height="5" rx="2.5" fill="#0A1A2E"/>
+          <rect x="28" y="81" width="22" height="5" rx="2.5" fill="#0A1A2E"/>
+          <circle cx="92" cy="34" r="17" fill="#5DADEC"/>
+          <path d="M92 25v9l6 4" stroke="#0A1A2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="recurso__cuerpo">
+    <div class="recurso__principal">
+      <div class="opciones" role="group" aria-label="Choose an option">
+        <a class="opcion" href="#prompt" aria-controls="prompt" aria-expanded="false"><span class="etiqueta">Option 1</span><strong>The prompt <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></strong><span>Any chat, even free. You paste it each week.</span></a>
+        <a class="opcion" href="#skill" aria-controls="skill" aria-expanded="false"><span class="etiqueta">Option 2</span><strong>The skill <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></strong><span>Claude Code or Codex. It arrives on its own and remembers what you've read.</span></a>
+      </div>
+      <p class="opciones__ayuda">Tap an option to see how to use it.</p>
+
+      <section id="prompt" class="bloque-recurso" aria-labelledby="titulo-prompt">
+        <h2 id="titulo-prompt" class="seccion__titulo">Option 1 · The prompt</h2>
+        <p class="bloque-recurso__intro">Paste it into ChatGPT, Gemini or Claude with web search turned on. It works in the free versions that include search. To avoid repeats, paste last week's summary at the end.</p>
+        <div class="prompt">
+          <div class="prompt__barra">
+            <span class="prompt__nombre" id="nombre-prompt">Prompt</span>
+            <button class="boton copiar" type="button" data-copiar="texto-prompt" data-anuncio="anuncio-copia" data-error="error-copia" data-mensaje="Prompt copied. You can now paste it into your AI tool.">
+              <span class="copiar__estado">
+                <svg class="copiar__icono" data-inicial viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span class="copiar__texto" data-inicial>Copy</span>
+                <svg class="copiar__icono" data-listo viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="copiar__texto" data-listo aria-hidden="true">Copied</span>
+              </span>
+            </button>
+          </div>
+          <p class="prompt__ayuda"><span class="prompt__muestra" aria-hidden="true"></span>Fill in the highlighted parts with your details before pasting it.</p>
+          <pre class="prompt__texto" id="texto-prompt">I want to catch up on what my sources published in the last 7 days. Use web search and open each post before summarizing it.
+
+TODAY IS: <span class="completa">[today's date, for example: November 3, 2026]</span>
+MY COUNTRY: <span class="completa">[for example: Ecuador]</span>
+MY TOPIC: <span class="completa">[for example: logistics for small businesses]</span>
+WHAT I WANT IT FOR: <span class="completa">[for example: I work in operations at a distributor]</span>
+MY SOURCES (3 to 5, with their link):
+- <span class="completa">[Name and link of source 1]</span>
+- <span class="completa">[Name and link of source 2]</span>
+- <span class="completa">[Name and link of source 3]</span>
+If I didn't list any sources, suggest 5 to 8 on my topic, with their link and the date of their latest post (for YouTube channels, the date of the latest video if you can see it; if not, say so), and wait for me to choose before writing the summary. Mix formats: at least one news outlet or magazine, one blog or newsletter by an author, and not only YouTube channels. Prioritize sources from my country or region; if you suggest one from another country, say so. Don't suggest sources that haven't posted in more than three months or links that don't open.
+
+<span class="bloque">RULES</span>
+1. Only what was published in the 7 days before the TODAY IS date, including that day. Check the original date of each piece: if it's an old post with a new date, leave it out. If you can't find the date of a piece, either in the listing or when you open it, don't include it and say so in the coverage table.
+2. Each item includes the author, the date and the original link.
+3. Summarize what the content says, not the title. If the title exaggerates, write a descriptive one and explain in one sentence what it actually shows.
+4. Separate what the author claims from what has been verified. Sales, revenue or results figures are the author's, unless they have a verifiable source.
+5. If the post comes from a company that sells what it recommends, say so: "Content from [company], which sells [product]".
+6. If you couldn't open or read something (a video without a transcript, paid content or a page that requires signing in), say so and include only the title, date and link. If you could only read a video's description, you can summarize it, but clarify "based on the description; I didn't watch the video". Don't invent summaries.
+7. If a source didn't publish anything that week, say so; don't fill in with old material.
+8. Within each source, take only what relates to my topic and read at most 10 posts in total, starting with the most useful for what I want. Mention the rest in the coverage table.
+9. If I paste last week's summary at the end, don't repeat what's already there.
+
+<span class="bloque">RESPONSE FORMAT</span>
+Weekly summary · [topic] · [dates]
+
+This week: one sentence with the most important news.
+
+Group the items by topic (not by source). In each topic:
+- Author, "Title", date. One- or two-sentence summary. Link.
+- Possible use: one sentence on how it could help me, based on what I want it for. If there's no clear use, write "no clear application for now".
+
+At the end, a coverage table with each source: whether its content was read, only the listing was seen, it couldn't be opened, or it didn't publish that week.
+
+<span class="completa">[Optional: paste last week's summary here to avoid repeats]</span></pre>
+          <div class="prompt__pie">
+            <p class="visualmente-oculto" role="status" aria-live="polite" id="anuncio-copia"></p>
+            <p class="aviso-error" id="error-copia" hidden>Couldn't copy automatically. Select the text and copy it manually.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skill" class="bloque-recurso" aria-labelledby="titulo-skill">
+        <h2 id="titulo-skill" class="seccion__titulo">Option 2 · The skill</h2>
+        <p class="bloque-recurso__intro">A skill is a set of instructions that Claude Code or Codex follows when you ask. This one remembers what it already summarized so it doesn't repeat it, reads your sources' feeds so nothing is missed, groups the news by topic and tells you how each item could help you. Its instructions are in Spanish, but it writes your summary in the language you choose.</p>
+        <p class="bloque-recurso__accion"><a class="boton" href="https://github.com/JonathanMejia7/resumen-semanal/releases/latest/download/resumen-semanal.zip">Download the skill (ZIP)</a> <a class="bloque-recurso__enlace" href="https://github.com/JonathanMejia7/resumen-semanal" target="_blank" rel="noopener">See the code on GitHub</a></p>
+        <h3 class="bloque-recurso__subtitulo">How to install and use it</h3>
+        <ol class="pasos">
+          <li>
+            <div>
+              <strong>Get your tool ready</strong>
+              <p>You need <strong>Claude Code</strong> (in the Claude desktop app, Code tab) or <strong>Codex</strong>, on a Mac or Windows computer.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Download and unzip the skill</strong>
+              <p>You'll get a folder called <code>resumen-semanal</code>, with the skill's instructions and a small program that reads your sources' feeds.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Install it</strong>
+              <p>The easy way: open Claude Code or Codex and type <span class="marcado">"Install the skill in my Downloads/resumen-semanal folder"</span>. To do it by hand, copy the whole folder into <code>~/.claude/skills/</code> (Claude Code) or <code>~/.agents/skills/</code> (Codex).</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Set it up</strong>
+              <p>Type <span class="marcado">"Set up my weekly summary in English"</span>. It asks for your topic, what you want it for, your country and how you want to receive it: in the chat, as a file, in a document, in Google Drive or by email. If you don't have sources, it suggests some and you pick 3 to 5.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Run a first test</strong>
+              <p>Type <span class="marcado">"Prepare my weekly summary"</span>. It takes a few minutes because it opens each post before summarizing it. Check the result and tell it what to adjust: more detail, fewer topics, another source.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Schedule it</strong>
+              <p>In Claude: Code tab, <strong>Scheduled</strong> and <strong>New task</strong>. In the instructions, type <span class="marcado">"Use the resumen-semanal skill and prepare this week's summary"</span>, choose <strong>Weekly</strong>, the day and the time. In Codex, create a scheduled task in its <strong>Scheduled</strong> section with the same text.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <aside class="recurso__lateral" aria-label="Before you start">
+    <section class="seccion" aria-labelledby="titulo-cual">
+      <h2 id="titulo-cual" class="seccion__titulo">Which one is for you?</h2>
+      <div class="notas">
+        <div class="nota">
+          <strong>The prompt, if you want to try it.</strong>
+          <p>It works in any chat and there's nothing to install. But you paste it each week and it starts from scratch.</p>
+        </div>
+        <div class="nota">
+          <strong>The skill, if you want it to become a habit.</strong>
+          <p>It arrives when you choose, doesn't repeat what you've already read, and you can adjust it over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-antes">
+      <h2 id="titulo-antes" class="seccion__titulo">Before you schedule it</h2>
+      <div class="notas">
+        <div class="nota">
+          <strong>Your computer has to be on.</strong>
+          <p>Scheduled tasks run while the app is open and the computer is awake. In Claude, if one is missed, it runs when you reopen the app.</p>
+        </div>
+        <div class="nota">
+          <strong>Connect email or Drive first.</strong>
+          <p>To receive it by email, in a document or in Drive, connect that tool in Claude or Codex. A scheduled task can't ask you for permissions while it runs.</p>
+        </div>
+        <div class="nota">
+          <strong>Check the links.</strong>
+          <p>AI can make mistakes. Each item includes its original link so you can confirm what matters before you use it.</p>
+        </div>
+        <div class="nota">
+          <strong>Your data stays with you.</strong>
+          <p>The settings, memory and reports are saved on your computer, in the <code>resumen-semanal</code> folder in your user folder.</p>
+        </div>
+      </div>
+    </section>
+    </aside>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>Jonathan Mejía</strong> · @jonathanmejia.ops · Guayaquil, Ecuador</p>
+      <ul class="redes" aria-label="Social media">
+        <li><a href="https://www.tiktok.com/@jonathanmejia.ops" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://www.instagram.com/jonathanmejia.ops/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathanmejia710" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/assets/js/copiar.js"></script>
+  <script src="/assets/js/opciones.js"></script>
+</body>
+</html>

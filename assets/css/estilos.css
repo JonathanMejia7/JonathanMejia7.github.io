@@ -1498,3 +1498,159 @@ main:has(> .banda:last-child) {
     width: 80%;
   }
 }
+
+/* Recursos con varias formas (por ejemplo, prompt y skill): accesos arriba y un bloque por forma */
+.recurso__principal {
+  display: grid;
+  gap: var(--e-7);
+  min-width: 0;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-3);
+}
+
+.opcion {
+  display: grid;
+  align-content: start;
+  gap: var(--e-1);
+  padding: var(--e-4);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  color: var(--texto);
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 160ms var(--ease-out);
+}
+
+.opcion strong {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  font-family: var(--fuente-titulos);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.opcion strong svg {
+  width: 16px;
+  height: 16px;
+  color: var(--celeste);
+}
+
+.opcion > span:last-child {
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.opcion:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .opcion:hover {
+    border-color: var(--celeste);
+  }
+}
+
+.bloque-recurso {
+  scroll-margin-top: var(--e-5);
+}
+
+.bloque-recurso .prompt {
+  margin-top: var(--e-4);
+}
+
+.bloque-recurso__intro {
+  margin-top: var(--e-2);
+  color: var(--texto-suave);
+}
+
+.bloque-recurso__accion {
+  margin-top: var(--e-5);
+}
+
+.bloque-recurso__subtitulo {
+  margin: var(--e-6) 0 var(--e-4);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.bloque-recurso code,
+.recurso__lateral code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--resalte);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 479px) {
+  .opciones {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dentro de la explicación de un paso, las negritas siguen en la misma línea */
+.pasos p strong {
+  display: inline;
+}
+
+/* Tarjeta elegida y sección desplegada */
+.opcion strong svg {
+  transition: transform 200ms var(--ease-out);
+}
+
+.opcion[aria-expanded="true"] {
+  border-color: var(--celeste);
+  box-shadow: inset 0 0 0 1px var(--celeste), var(--sombra);
+}
+
+.opcion[aria-expanded="true"] strong svg {
+  transform: rotate(180deg);
+}
+
+.opciones__ayuda {
+  margin-top: calc(var(--e-7) * -1 + var(--e-3));
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+}
+
+/* Cuando JavaScript abre una sección, aparece con un fundido corto */
+.bloque-recurso:not([hidden]) {
+  animation: aparecer-bloque 220ms var(--ease-out);
+}
+
+@keyframes aparecer-bloque {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloque-recurso:not([hidden]) {
+    animation: none;
+  }
+
+  .opcion strong svg {
+    transition: none;
+  }
+}
+
+.bloque-recurso__accion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-3) var(--e-5);
+}
+
+.bloque-recurso__enlace {
+  font-weight: 500;
+}
