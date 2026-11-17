@@ -1741,3 +1741,44 @@ main:has(> .banda:last-child) {
     border-color: var(--texto);
   }
 }
+
+
+/* Guías por app: ícono junto al nombre y dónde se hace */
+.app-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--e-3);
+}
+
+.app-icono {
+  flex: none;
+  width: 30px;
+  height: 30px;
+}
+
+.datos--claro {
+  margin-top: var(--e-3);
+}
+
+.datos--claro .chip {
+  border-color: var(--borde);
+  color: var(--texto-suave);
+}
+
+/* Guías: pasos y notas cortas de cada herramienta */
+.bloque-recurso > .pasos {
+  margin-top: var(--e-4);
+}
+
+.bloque-recurso__lista {
+  display: grid;
+  gap: var(--e-2);
+  margin: var(--e-4) 0 0;
+  padding-left: 1.2em;
+  color: var(--texto-suave);
+}
+
+.bloque-recurso__lista strong {
+  color: var(--texto);
+}
